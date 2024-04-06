@@ -41,7 +41,7 @@ function KhuVucVaDoiTuong(khuVuc, doiTuong) {
 
 function xetTrungTuyen(ketQua, diemChuan) {
 
-    if (ketQua <= diemChuan) {
+    if (ketQua < diemChuan) {
 
         let xetTrungTuyen = 'Rớt';
         document.getElementById('innerXetTuyen').innerHTML = `
