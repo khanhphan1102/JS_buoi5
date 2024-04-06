@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>Quản lý Tuyển sinh</h2>
+        <div class="item mb-5">
+            <div class="card" style="width: 50%;">
+                <div class="card-body">
+                    <h5 class="card-title">📚 Điểm Chuẩn</h5>
+                    <div class="input-group mb-3">
+                        <input type="number" placeholder="Nhập điểm chuẩn" class="form-control w-40" id="diemChuan">
+                    </div>
+                    <h5 class="card-title">📚 Điểm Ba Môn </h5>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control w-40" placeholder="Điểm môn Toán" id="diemMonToan">
+                        <input type="number" class="form-control w-40" placeholder="Điểm môn Văn" id="diemMonVan">
+                        <input type="number" class="form-control w-40" placeholder="Điểm môn Anh" id="diemMonAnh">
+                    </div>
+                    <h5 class="card-title">📚 Khu Vực</h5>
+                    <div class="input-group mb-3">
+                        <select class="form-control" id="khuVuc">
+                            <option>Chọn khu vực</option>
+                            <option value="2">Khu vực A + 2 Điểm</option>
+                            <option value="1">Khu vực B + 1 Điểm</option>
+                            <option value="0.5">Khu vực C + 0.5 Điểm</option>
+                            <option value="0">Không thuộc khu vực ưu tiên</option>
+                        </select>
+                    </div>
+                    <h5 class="card-title">📚 Đối tượng dự thi</h5>
+                    <div class="input-group mb-3">
+                        <select class="form-control" id="doiTuong">
+                            <option>Chọn diện ưu tiên</option>
+
+                            <option value="2.5">Thuộc diện 1 + 2.5 Điểm</option>
+                            <option value="1.5">Thuộc diện 2 + 1.5 Điểm</option>
+                            <option value="1">Thuộc diện 3 + 1 Điểm</option>
+                            <option value="0">Không thuộc đối tượng ưu tiên</option>
+                        </select>
+                    </div>
+                    <button href="#" class="btn btn-primary" onclick="KetQua()">Kết quả</button>
+                    <div class="message mt-3">
+                        <div class="card" style="width: 100%;">
+                            <div class="card-body">
+                                <p id="innerKetQua"></p>
+                                <p id="innerXetTuyen"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Tính tiền điện</h2>
+        <div class="item mb-5">
+            <div class="card" style="width: 50%;">
+                <div class="card-body">
+                    <h5 class="card-title">📚 Tên hộ dân</h5>
+                    <div class="input-group mb-3">
+                        <input type="text" placeholder="Họ và tên" class="form-control w-40" id="hoTenHoDan">
+                    </div>
+                    <h5 class="card-title">📚 Lượng điện tiêu thụ (Kw)</h5>
+                    <div class="input-group mb-3">
+                        <input type="number" placeholder="Nhập số điện (Kw)" class="form-control w-40" id="soKw">
+                    </div>
+                    <button href="#" class="btn btn-primary" onclick="tinhTienDien()">Tính tiền</button>
+                    <div class="message mt-3">
+                        <div class="card" style="width: 100%;">
+                            <div class="card-body">
+                                <p id="innerHoTen"></p>
+                                <p id="innerSoKw"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Tính thuế thu nhập cá nhân</h2>
+        <div class="item mb-5">
+            <div class="card" style="width: 50%;">
+                <div class="card-body">
+                    <h5 class="card-title">📚 Họ và tên</h5>
+                    <div class="input-group mb-3">
+                        <input type="text" placeholder="Họ và tên" class="form-control w-40" id="hoTen">
+                    </div>
+                    <h5 class="card-title">📚 Tổng thu nhập năm</h5>
+                    <div class="input-group mb-3">
+                        <input type="number" placeholder="Thu nhập" class="form-control w-40" id="tongThuNhap">
+                    </div>
+                    <h5 class="card-title">📚 Số người phụ thuộc</h5>
+                    <div class="input-group mb-3">
+                        <input type="number" placeholder="Số người" class="form-control w-40" id="soNguoiPhuThuoc">
+                    </div>
+                    <button href="#" class="btn btn-primary" onclick="tinhThueThuNhap()">Tính tiền</button>
+                    <div class="message mt-3">
+                        <div class="card" style="width: 100%;">
+                            <div class="card-body">
+                                <p id="innerHoTenCaNhan"></p>
+                                <p id="innerThueThuNhap"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Tính tiền cáp</h2>
+        <div class="item mb-5">
+            <div class="card" style="width: 50%;">
+                <div class="card-body">
+                    <h5 class="card-title">📚 Mã khách hàng</h5>
+                    <div class="input-group mb-3">
+                        <input type="text" placeholder="Mã KH" class="form-control w-40" id="maKhachHang">
+                    </div>
+                    <h5 class="card-title">📚 Loại khách hàng</h5>
+                    <div class="input-group mb-3">
+                        <select onchange="AnHienKetNoi()" class="form-control" id="loaiKhachHang">
+                            <option>Chọn loại khách hàng</option>
+                            <option value="caNhan">Cá nhân</option>
+                            <option value="doanhNghiep">Doanh nghiệp</option>
+                        </select>
+                    </div>
+                    <h5 class="card-title" id="titleSoKetNoi" style="display: none;">📚 Số kết nối</h5>
+                    <div class="input-group mb-3">
+                        <input type="number" placeholder="Số kết nối" class="form-control w-40" id="soKetNoi" style="display: none;">
+                    </div>
+                    <h5 class="card-title">📚 Số kênh cao cấp</h5>
+                    <div class="input-group mb-3">
+                        <input type="number" placeholder="Số kênh" class="form-control w-40" id="soKenhCaoCap">
+                    </div>
+                    <button href="#" class="btn btn-primary" onclick="tinhHoaDon()">Tính tiền</button>
+                    <div class="message mt-3">
+                        <div class="card" style="width: 100%;">
+                            <div class="card-body">
+                                <p id="innerMaKhachHang"></p>
+                                <p id="innerSoKetNoi" style="display: none;"></p>
+                                <p id="innerSoKenhCaoCap">
+                                <p id="innerTongHoaDon"></p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="./js/quanlysinhvien.js"></script>
+    <script src="./js/tinhtiendien.js"></script>
+    <script src="./js/tinhthuethunhap.js"></script>
+    <script src="./js/tinhtiencap.js"></script>
+
+</body>
+
+</html>
